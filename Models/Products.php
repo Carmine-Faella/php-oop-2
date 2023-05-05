@@ -19,12 +19,15 @@ class Product {
     }
 
     public function getDetails(){
-        return "<img src='".$this->image."' class='card-img-top'>
-                <div class='card-body'>
-                    <h1>".$this->name."</h1>
-                    <p class='card-text'>Prezzo: ".$this->price."</p>
-                    <div class='card-text'>".$this->icon."</div>
-                    <p class='card-text'>Categoria: ".$this->type->type."</p>
+        return "
+                <div class='card' style='width: 18rem;'>
+                    <img src='".$this->image."' class='card-img-top'>
+                    <div class='card-body'>
+                        <h1>".$this->name."</h1>
+                        <p class='card-text'>Prezzo: ".$this->price."</p>
+                        <div class='card-text'>".$this->icon."</div>
+                        <p class='card-text'>Categoria: ".$this->type->type."</p>
+                    </div>
                 </div>";
     }
     
