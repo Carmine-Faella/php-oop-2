@@ -9,29 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class='bg-black'>
 
     <?php 
 
         require_once __DIR__ . '/Models/Products.php';
         require_once __DIR__ . '/Models/Item.php';
         require_once __DIR__ . '/Models/Type.php';
-
-        $newTypeDog = new Type('Cane');
-        $newTypeCat = new Type('Gatto');
-
-        $newCard=[
-            new Item('https://www.nutrixpiu.it/wp-content/uploads/2018/09/CANI-DA-SEGUITA_15KG-731x1024.png','Mangime per cani','22€','<i class="fa-solid fa-dog"></i>',$newTypeDog),
-            new Item('https://images.obi-italia.it/product/IT/1500x1500/166400_1.jpg','Pallina da gioco','12€','<i class="fa-solid fa-cat"></i>',$newTypeCat),
-            new Item('https://www.my-personaltrainer.it/2022/11/23/cane-nella-cuccia-orig.jpeg','Cuccia per cani','32€','<i class="fa-solid fa-dog"></i>',$newTypeDog)
-        ];
-        
+        require_once __DIR__ . '/Database/db.php';
     
     ?>
 
     <div class="container">
-        <div class="row my-5 justify-content-around">
-            <h1>Il mio e-commerce</h1>
+        <div class="row my-5 justify-content-around text-white">
+            <h1 class='text-center my-5'>Il mio e-commerce</h1>
                 <?php 
                     foreach($newCard as $Card){
                         echo $Card->getDetails();
