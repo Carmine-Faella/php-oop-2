@@ -13,19 +13,18 @@
     <?php 
 
         require_once __DIR__ . '/Models/Products.php';
-        require_once __DIR__ . '/Models/Food.php';
-        require_once __DIR__ . '/Models/Toys.php';
-        require_once __DIR__ . '/Models/Home.php';
+        require_once __DIR__ . '/Models/Item.php';
         require_once __DIR__ . '/Models/Type.php';
 
         $newTypeDog = new Type('Cane');
         $newTypeCat = new Type('Gatto');
-        $newCard = new Food('https://www.nutrixpiu.it/wp-content/uploads/2018/09/CANI-DA-SEGUITA_15KG-731x1024.png','Mangime per cani','22€','<i class="fa-solid fa-dog"></i>',$newTypeDog);
-        $newCardToys = new Toys('https://images.obi-italia.it/product/IT/1500x1500/166400_1.jpg','Pallina da gioco','12€','<i class="fa-solid fa-cat"></i>',$newTypeCat);
-        $newCardHome = new Home('https://www.my-personaltrainer.it/2022/11/23/cane-nella-cuccia-orig.jpeg','Cuccia per cani','32€','<i class="fa-solid fa-dog"></i>',$newTypeDog);
 
-        $newCard->getDetails();
-        var_dump($newCard)
+        $newCard=[
+            new Item('https://www.nutrixpiu.it/wp-content/uploads/2018/09/CANI-DA-SEGUITA_15KG-731x1024.png','Mangime per cani','22€','<i class="fa-solid fa-dog"></i>',$newTypeDog),
+            new Item('https://images.obi-italia.it/product/IT/1500x1500/166400_1.jpg','Pallina da gioco','12€','<i class="fa-solid fa-cat"></i>',$newTypeCat),
+            new Item('https://www.my-personaltrainer.it/2022/11/23/cane-nella-cuccia-orig.jpeg','Cuccia per cani','32€','<i class="fa-solid fa-dog"></i>',$newTypeDog)
+        ];
+        
     
     ?>
 
@@ -33,17 +32,9 @@
         <div class="row my-5">
             <div class="card" style="width: 18rem;">
                 <?php 
-                    echo $newCard->getDetails();
-                ?>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <?php 
-                    echo $newCardToys->getDetails();
-                ?>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <?php 
-                    echo $newCardHome->getDetails();
+                    foreach($newCard as $Card){
+                        echo $Card->getDetails();
+                    };
                 ?>
             </div>
         </div>

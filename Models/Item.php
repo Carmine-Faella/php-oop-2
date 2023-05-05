@@ -1,9 +1,7 @@
 
 <?php
 
-class Home extends Product {
-
-    public $type;
+class Item extends Product {
 
     public function __construct($_image, $_name, $_price, $_icon, Type $_type)
     {
