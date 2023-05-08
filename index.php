@@ -17,16 +17,27 @@
         require_once __DIR__ . '/Models/Item.php';
         require_once __DIR__ . '/Models/Type.php';
         require_once __DIR__ . '/Database/db.php';
-    
+
+        
     ?>
 
     <div class="container">
-        <div class="row my-5 justify-content-around text-white">
+        <div class="row g-5 my-5 justify-content-around text-white">
             <h1 class='text-center my-5'>Il mio e-commerce</h1>
                 <?php 
                     foreach($newCard as $Card){
+                        $Card->setMark('Crocantix');
+                        $Card->setCompatibility('No');
                         echo $Card->getDetails();
+
+                        try {
+                            echo $Card->setMark('Crocantix');
+                        } catch (Exception $e) {
+                            echo "Si è verificato un errore: " . $e->getMessage();
+                        }
                     };
+
+                   echo $card -> getDetails();
                 ?>
         </div>
     </div>
